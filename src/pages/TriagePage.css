@@ -1,0 +1,233 @@
+.triage-page {
+    animation: fadeIn 0.4s ease;
+}
+
+.triage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Form */
+.triage-form-card {
+    position: sticky;
+    top: calc(var(--navbar-height) + 28px);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-analyze {
+    width: 100%;
+    padding: 13px;
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+/* Alert Banner */
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: slideDown 0.5s ease, alertPulse 2s ease infinite;
+}
+
+.alert-banner--danger {
+    background: linear-gradient(135deg, #d32f2f, #c62828);
+    color: white;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.3);
+}
+
+.alert-banner--danger svg {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+/* Result Card */
+.triage-result-card {
+    animation: fadeIn 0.5s ease;
+}
+
+.triage-result--danger {
+    border-color: rgba(211, 47, 47, 0.2);
+}
+
+.triage-result--warning {
+    border-color: rgba(237, 108, 2, 0.2);
+}
+
+.triage-result--success {
+    border-color: rgba(46, 125, 50, 0.2);
+}
+
+/* Risk Score Circle */
+.risk-score-display {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.risk-score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: fadeIn 0.6s ease;
+}
+
+.risk-score--success {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border: 3px solid var(--color-success);
+}
+
+.risk-score--warning {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 3px solid var(--color-warning);
+}
+
+.risk-score--danger {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border: 3px solid var(--color-danger);
+    animation: pulse 1.5s ease infinite;
+}
+
+.risk-score-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.risk-score--success .risk-score-number {
+    color: var(--color-success);
+}
+
+.risk-score--warning .risk-score-number {
+    color: var(--color-warning);
+}
+
+.risk-score--danger .risk-score-number {
+    color: var(--color-danger);
+}
+
+.risk-score-max {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.risk-score-info {
+    flex: 1;
+}
+
+.risk-patient-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 8px 0 4px;
+    color: var(--color-text-primary);
+}
+
+.risk-description {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* Vitals Summary */
+.risk-vitals-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.risk-vital {
+    text-align: center;
+    padding: 10px 6px;
+    background: var(--color-bg-main);
+    border-radius: var(--radius-sm);
+}
+
+.risk-vital-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.risk-vital-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+/* Empty State */
+.triage-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 340px;
+    color: var(--color-text-muted);
+}
+
+.triage-empty-state .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.25;
+}
+
+.triage-empty-state h3 {
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+}
+
+.triage-empty-state p {
+    font-size: 0.88rem;
+    max-width: 280px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .triage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .triage-form-card {
+        position: static;
+    }
+
+    .risk-vitals-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .form-row,
+    .form-row-3 {
+        grid-template-columns: 1fr;
+    }
+}

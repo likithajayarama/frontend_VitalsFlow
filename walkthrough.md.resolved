@@ -1,0 +1,72 @@
+# AI Care Dashboard — Walkthrough
+
+## Overview
+
+Built a complete React + Vite healthcare dashboard for the **AI Care – Smart Hospital Assistant** hackathon project. The dashboard connects three AI modules through configurable API endpoints with automatic dummy data fallback.
+
+## Screenshots
+
+### Smart ER Triage
+Patient intake form with AI-powered risk scoring, color-coded alerts, and animated banners for critical patients.
+
+![Smart ER Triage Page](C:/Users/Harsha Gowda/.gemini/antigravity/brain/ec2f1b49-977a-4011-a657-54b7c6284fb7/triage_full_page_1772622827977.png)
+
+### Ambient Scribe
+Split-screen layout with audio recording controls, `.wav` file upload, and structured SOAP notes output.
+
+![Ambient Scribe Page](C:/Users/Harsha Gowda/.gemini/antigravity/brain/ec2f1b49-977a-4011-a657-54b7c6284fb7/scribe_full_page_1772622815034.png)
+
+### Digital Caretaker
+Post-discharge monitoring with patient summary, vital signs cards, Recharts trend graphs, and WhatsApp bot status.
+
+![Digital Caretaker Page](C:/Users/Harsha Gowda/.gemini/antigravity/brain/ec2f1b49-977a-4011-a657-54b7c6284fb7/monitor_full_page_1772622811775.png)
+
+## Project Structure
+
+```
+HACKATHON/
+├── src/
+│   ├── components/
+│   │   ├── Layout.jsx         # Sidebar + Navbar + Outlet + Footer
+│   │   ├── Sidebar.jsx/css    # Dark sidebar with nav icons
+│   │   ├── Navbar.jsx/css     # Title, bell, user profile
+│   │   ├── Footer.jsx/css     # Hackathon branding
+│   │   └── Spinner.jsx        # Loading spinner
+│   ├── pages/
+│   │   ├── TriagePage.jsx/css # Patient intake + risk score
+│   │   ├── ScribePage.jsx/css # Audio recording + SOAP notes
+│   │   └── MonitorPage.jsx/css# Vitals charts + WhatsApp status
+│   ├── services/
+│   │   └── api.js             # Axios + fallback data
+│   ├── App.jsx                # React Router setup
+│   ├── main.jsx               # Entry point
+│   └── index.css              # Design system
+```
+
+## How to Run
+
+```bash
+cd HACKATHON
+npm run dev
+# Open http://localhost:5173
+```
+
+## Connecting to FastAPI Backend
+
+Set the `VITE_API_URL` environment variable in a `.env` file:
+
+```
+VITE_API_URL=http://localhost:8000
+```
+
+The API service ([api.js](file:///c:/Users/Harsha%20Gowda/Desktop/HACKATHON/src/services/api.js)) will automatically use this URL. If the backend is unavailable, fallback dummy data is shown.
+
+## Verified
+
+- ✅ All three pages render correctly
+- ✅ Sidebar navigation with active state highlighting
+- ✅ Navbar with notification badge and user profile
+- ✅ Responsive layout (collapses sidebar on tablet)
+- ✅ Recharts graphs render with trend data
+- ✅ API calls gracefully fall back to dummy data
+- ✅ Footer visible on all pages
